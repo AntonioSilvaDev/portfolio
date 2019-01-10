@@ -2,6 +2,7 @@ html, body{
     height: 100%;
     width: 100%
 }
+
 .navbar {
     background-color: #616b73f5;
     padding: 10px 10px;
@@ -10,13 +11,17 @@ html, body{
 
 .navbar-default .navbar-nav li a {
     color: #D5D5D5;
+    font-size: 20px;
 }
+
 .navbar-default a {
     color: #D5D5D5;
 }
+
 .navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:active {
     color: #FFF;
 }
+
 #home {
     background: url(/images/marble.jpg) no-repeat center center fixed;
     display: table;
@@ -26,21 +31,26 @@ html, body{
     background-size: cover;
     background-position: right 50px;
 }
+
 .landing-text {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
 }
+
 .landing-text h1 {
     font-size: 500%;
     font-weight: 700;
 }
+
 .padding {
     padding: 80px 0;
 }
+
 .padding img{
     width: 100%;
 }
+
 #fixedImg {
     background: url(/images/sunset.jpg) no-repeat center center fixed;
     display: table;
@@ -49,21 +59,31 @@ html, body{
     width: 100%;
     background-size: cover;
 }
+
 .bottom-buffer{
     margin-bottom: 30px
 }
+
 .btn-lg{
     margin-top: 15px
 }
+
 i{
     color: #337ab7
 }
+
 .fab, .fas{
     margin: 5px 10px
 }
+
 form{
     padding: 0 10px;
 }
+
 #name {
     padding-bottom: 40px;
+}
+
+footer{
+    padding-bottom: 50px;
 }
