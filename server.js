@@ -28,11 +28,11 @@ app.get('/', (req, res) => {
         }
     }
     //Now data is the second argument passed to template render method, data being the local variable above
-    res.render('index', data);
+    res.render('index');
 });
 
 app.get('*', function (req, res) {
-    res.send(404,'Whoops, page not found 404');
+    res.status(404).send('Whoops, page not found 404');
   })
 
 const mailchimpInstance = 'us7';
