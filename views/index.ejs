@@ -1,10 +1,145 @@
 <html>
   <head>
     <title> Tony's Portfolio </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
   <body>
-    <div>
-      Hi, My name is <%= person.firstName %> <%= person.lastName %>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="https://github.com/TonysCodeJourney" target="_blank" class="fab fa-github fa-2x">TonysCodeJourney</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-collapse-main">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="active" href="#home" data-toggle="collapse" data-target=".navbar-collapse.in">Home</a></li>
+            <li><a href="#aboutMe" data-toggle="collapse" data-target=".navbar-collapse.in">About</a></li>
+            <li><a href="#folio" data-toggle="collapse" data-target=".navbar-collapse.in">Portfolio</a></li>
+            <li><a href="#contact" data-toggle="collapse" data-target=".navbar-collapse.in">Contact Me</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="home">
+      <div class="landing-text">
+        <h1><%= person.firstName %> <%= person.lastName %></h1>
+        <h2>Full Stack Developer</h2>
+      </div>
     </div>
+
+    <div id="aboutMe"class="padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <img src="/images/family-400.jpg" class="img-responsive">
+          </div>
+          <div class="col-sm-6 text-center">
+            <h2>All About Me</h2>
+            <p class="lead">I am a goal driven indidividual looking to break into the Tech Industry to help make products that make a difference.  I love to troubleshoot and create things.  I have experience with: Node.js, React.js, HTML, CSS and JavaScript.  Check out my work and connect with me below.</p>
+            <p class="lead">Currently seeking Full-Time employment in Full MERN-Stack Development</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="folio" class="padding">
+        <h2 id="name" class="text-center">Portfolio</h2>
+      <div class="container">
+        <div class="row bottom-buffer">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4>Change Calculator</h4>
+            <p>This is a <a href="https://ts-change-calculator.herokuapp.com/" target="_blank">change calculator</a> that takes two inputs: total cost and what customer provided, then will calculate change due to the customer starting from $20's and working down to pennies.  Made using REACT.</p>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <img src="/images/coins.jpg" class="img-responsive"> 
+          </div>
+          
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <h4>Mortgage Calculator</h4>
+              <p>This is a <a href="https://ts-mortgage-calculator.herokuapp.com/" target="_blank">mortgage calculator</a> that takes three inputs: Loan Balance, Interest Rate and Loan Terms. Calculates what the monthly payments should be. Made using REACT.</p>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <img src="/images/house-keys.jpg" class="img-responsive">
+          </div>
+        </div>
+        <div class="row bottom-buffer">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4>ToDo App</h4>
+            <p>This is a <a href="https://ts-vstda.herokuapp.com/" target="_blank">Very Simple ToDo App</a>.  It lets you add ToDo items and set a priority level to them which color codes them. You can also edit and delete items.</p>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <img src="/images/notepad.jpg" class="img-responsive">
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <h4>Hackathon Project</h4>
+              <p>This is a <a href="https://ts-hackathon.herokuapp.com/" target="_blank">hackathon project</a>.  I choose to make a gif/meme getter that hits an API and retrieves gifs/meme's based off user input parameters.</p>
+          </div>  
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <img src="/images/hackathon.jpg" class="img-responsive">
+          </div>
+        </div>    
+        </div>
+      </div>
+    </div>
+
+    <div id="fixedImg">*</div>
+
+    <div id='contact' class="padding">
+        <h2 id="name" class="text-center">Contact Me!</h2>
+        <div class="container">
+          <div class="row">
+            <div class="form-group">
+              <form action="/thanks" method="POST">
+              <label for="firstName">First Name:</label>
+              <input id="firstName" class="form-control" name="firstName" type="text">
+
+              <label for="lastName">Last Name:</label>
+              <input id="lastName" class="form-control" name="lastName" type="text">
+
+              <label for="phoneNumber">Phone Number:</label>
+              <input id="phoneNumber" class="form-control" name="phoneNumber" type="tel" placeholder="###-###-####">
+
+              <label for="email">Email:</label>
+              <input id="email" class="form-control" name="email" type="text">
+              
+              <label for="message">Send Me A Message:</label>
+              <textarea id="message" class="form-control" name="message" type="text" placeholder="I am eager to hear from you!"></textarea>
+
+              <input type="submit" class="btn btn-primary btn-lg"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
+    <footer class="container-fliud text-center">
+      <div class="row">
+        <div class="col-sm-6">
+          <h3>Located in Sunny San Diego, CA</h3>
+          <i href="#" class="fas fa-map fa-2x"></i>
+        </div>
+        <div class="col-sm-6">
+            <h3>Connect on Socials</h3>
+            <a href="https://www.linkedin.com/in/antonio-silva-1085a523" target="_blank" class="fab fa-linkedin fa-2x"></a>
+            <a href="https://www.youtube.com/user/tonysilvasd/" target="_blank" class="fab fa-youtube fa-2x">Check me out on YOUTUBE!</a>
+            
+          </div>
+      </div>
+    </footer>
+   
   </body>
 </html>

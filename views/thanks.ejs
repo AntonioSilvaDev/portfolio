@@ -1,10 +1,20 @@
 <html>
   <head>
     <title>Tony Thanks You</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div>
-      Thank you <%= contact.firstName %> <%= contact.lastName %>.
+    <div class="container">
+      <div class="row">
+        <div class="col-sm"></div>
+          Thank you <%= contact.firstName %> <%= contact.lastName %>! Your Message: <%= contact.message %> and phone number <%= contact.phoneNumber %> have been recorded and sent.  I will get back to you shortly!
+      </div>
+      <div class="col-sm">
+        <a href="/"><button class="btn btn-primary">Click here to return to my site!</button></a>
+      </div>
+    </div>
     </div>
   </body>
 </html>

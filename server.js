@@ -9,6 +9,7 @@ const app = express();
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(__dirname + '/public'));
 
 //Here we're setting the view directory to be ./views
 //thereby letting the app know where to find the template files
@@ -30,9 +31,9 @@ app.get('/', (req, res) => {
     res.render('index', data);
 });
 
-app.get('/contact', (req, res) => {
-    res.render('contact');
-});
+app.get('*', function (req, res) {
+    res.send(404,'Whoops, page not found 404');
+  })
 
 const mailchimpInstance = 'us7';
 const listUniqueId = process.env.LIST_UNIQUE_ID;
@@ -48,7 +49,9 @@ app.post('/thanks', (req, res) => {
           'merge_fields': {
             'FNAME': req.body.firstName,
             'LNAME': req.body.lastName
-          }
+          },
+          'PHONE': req.body.phoneNumber,
+          'MESSAGE': req.body.message
         })
         .end(function(err, response) {
             if(response.status < 300 || (response.status === 400)) {
