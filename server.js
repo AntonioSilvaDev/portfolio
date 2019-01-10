@@ -5,6 +5,7 @@ const request = require('superagent');
 require('dotenv').config()
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
@@ -21,19 +22,8 @@ app.set('view engine', 'ejs');
 
 //res.render instead of res.send to send output of template by filename
 app.get('/', (req, res) => {
-    const data = {
-        person: {
-            firstName: 'Tony',
-            lastName: 'Silva'
-        }
-    }
-    //Now data is the second argument passed to template render method, data being the local variable above
     res.render('index');
 });
-
-app.get('*', function (req, res) {
-    res.status(404).send('Whoops, page not found 404');
-  })
 
 const mailchimpInstance = 'us7';
 const listUniqueId = process.env.LIST_UNIQUE_ID;
@@ -48,10 +38,10 @@ app.post('/thanks', (req, res) => {
           'status': 'subscribed',
           'merge_fields': {
             'FNAME': req.body.firstName,
-            'LNAME': req.body.lastName
-          },
-          'PHONE': req.body.phoneNumber,
-          'MESSAGE': req.body.message
+            'LNAME': req.body.lastName,
+            'PHONE': req.body.phoneNumber,
+          'MESSAGE': req.body.message,
+          }
         })
         .end(function(err, response) {
             if(response.status < 300 || (response.status === 400)) {
@@ -62,12 +52,6 @@ app.post('/thanks', (req, res) => {
             }
         }) 
 });
-
-// app.listen(8080, () => {
-//     console.log('Listening on port 8080');
-// });
-
-const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log(`server is listening on port ${PORT}`);
