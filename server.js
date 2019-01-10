@@ -63,6 +63,12 @@ app.post('/thanks', (req, res) => {
         }) 
 });
 
-app.listen(8080, () => {
-    console.log('Listening on port 8080');
+// app.listen(8080, () => {
+//     console.log('Listening on port 8080');
+// });
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`server is listening on port ${PORT}`);
 });
