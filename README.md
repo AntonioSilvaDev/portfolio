@@ -1,1 +1,1 @@
-Portfolio project!
+Portfolio project!  Displays some or the larger projects I have worked on along with links to my apps hosted on Heroku.  At the bottom of the page I have a contact form, so you can send me an email if you would like(Please do!).
