@@ -25,6 +25,10 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/.well-known/acme-challenge/6MqcvCGzyVj7EUVvK_BGVhwFaI8ulphKlLYMeVsgSL8', function(req, res) {
+    res.send('6MqcvCGzyVj7EUVvK_BGVhwFaI8ulphKlLYMeVsgSL8.4W6yKZ7baXdhxBq9mTIwzExkF2WV_cTbNVi9ZrQ1Rzg')
+  })
+
 const mailchimpInstance = 'us7';
 const listUniqueId = process.env.LIST_UNIQUE_ID;
 const API_KEY = process.env.MAILCHIMP_API_KEY;
@@ -50,7 +54,7 @@ app.post('/thanks', (req, res) => {
                 console.log(err);
                 res.send('Sign Up Failed :(');
             }
-        }) 
+        })
 });
 
 app.listen(PORT, () => {
